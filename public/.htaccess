@@ -1,0 +1,22 @@
+# Apache configuration file
+# http://httpd.apache.org/docs/current/mod/quickreference.html
+<IfModule mod_rewrite.c>
+     <IfModule mod_negotiation.c>
+         Options -MultiViews -Indexes
+     </IfModule>
+
+    # Activate URL rewriting.
+    RewriteEngine On
+
+    # Redirect Trailing Slashes...
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+    # If the file or directory with the name specified in the browser does not exist,
+    # then it precedes the rewrite rule.
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-l
+
+    # Redirect all requests to index
+     RewriteRule .* index.php [L,QSA]
+</IfModule>

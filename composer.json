@@ -1,0 +1,34 @@
+{
+    "name": "rufus/rufus",
+    "type": "framework",
+    "description": "A PHP framework for web artists",
+    "license": "MIT",
+    "authors": [{
+        "name": "Drizzy",
+        "email": "drizzyofc@gmail.com",
+        "role": "Developer"
+    }],
+	"require": {
+        "php": "^7.3|^8.0",
+        "rufus/framework": "^1.0"
+    },
+    "autoload":
+    {
+        "psr-4":
+        {
+            "App\\": "app/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "preferred-install": "dist",
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ]
+    }
+}
